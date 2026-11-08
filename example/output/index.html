@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; }
+        input { width: 100%; padding: 10px; box-sizing: border-box; }
+        article { border-bottom: 1px solid #ccc; padding: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>Library</h1>
+    <input id="search" type="search" placeholder="Search papers...">
+    <main id="papers">
+        <article>
+            <h2><a href="../papers/Chen_2012_EPL_99_68003.pdf">Analysis of Collective-Risk Social Dilemmas and Cooperation Evolution</a></h2>
+            <p>This text analyzes the evolution of cooperation in a structured population facing a collective-risk social dilemma, focusing on how the strength of the feedback ($h$) and the collective target ($T$) influence the outcome.</p>
+            <p><b>Category:</b> Theoretical/Modeling Results (Evolutionary Game Theory)</p>
+            <p><b>Keywords:</b> Collective Risk Social Dilemma, Cooperation Level, Risk Function, Feedback Strength (h), Collective Target (T), Failed Defectors (FD), Successful Cooperators (SC), Failed Cooperators (FC), Evolutionary Game Theory</p>
+        </article>
+        
+
+        <article>
+            <h2><a href="../papers/FAIA-392-FAIA240869.pdf">Artificial Agents Facilitate Human Cooperation through Indirect Reciprocity</a></h2>
+            <p>This model describes how individuals interact in a donation game, considering different strategies and reputation states. The system uses a Markov chain to represent transitions between states, where each state corresponds to the number of individuals using each strategy and their respective reputation levels. The expected payoffs are calculated based on probabilities adjusted for reputation states, and the stationary distribution is found by solving the eigenvector equation. The model accounts for FRSAs (Fixed Reputation Systems) by introducing damping factors, which reduce the number of agents available to change reputation. The results show how cooperation dynamics emerge from interactions between strategies and reputation states, highlighting the importance of both strategy and reputation in human cooperation.</p>
+            <p><b>Category:</b> Artificial Intelligence and Human Interaction</p>
+            <p><b>Keywords:</b> Markov Chains, Donation Game, Strategy Dynamics, Reputation States, Eigenvector Analysis</p>
+        </article>
+        
+
+        <article>
+            <h2><a href="../papers/1312.5602v1.pdf">Deep Q-learning with Experience Replay: A Robust Approach to Reinforcement Learning on Atari Games</a></h2>
+            <p>Deep Q-learning with Experience Replay is a robust reinforcement learning approach that leverages experience replay to improve the efficiency and stability of training. By storing past actions in a replay memory, the algorithm reduces the variance of updates and avoids oscillations or divergence, making it more effective than standard online Q-learning. This approach is particularly robust across different Atari games, demonstrating its ability to learn effectively from arbitrary-length histories. However, it has limitations, such as memory buffer inefficiencies and uniform sampling, which can lead to overfitting. Despite these challenges, the algorithm remains a powerful tool for learning from raw, high-dimensional Atari images, making it a promising solution for real-world applications.</p>
+            <p><b>Category:</b> Reinforcement Learning Algorithms</p>
+            <p><b>Keywords:</b> Deep Q-learning, Experience replay, Reinforcement learning, Atari games, Robustness, Efficiency, Stability, Learning algorithm, Experience buffer, Sampling strategy</p>
+        </article>
+        
+
+        <article>
+            <h2><a href="../papers/Xia_2015_EPL_109_58002.pdf">Dynamic instability of cooperation</a></h2>
+            <p>We have studied the impact of diverse activity patterns on the evolution of cooperation in evolutionary social dilemmas. We have focused on the weak prisoner’s dilemma on random and scale-free networks. The different activity patterns have been implemented through individual activation probabilities, according to which the impact on cooperation is significant. In the case of degree-correlated activity patterns, the cooperation levels remain similar to the traditional prisoner’s dilemma, validating our explanation behind the impaired evolution of cooperation. In contrast, with random activity patterns, cooperation is less affected, confirming that the particularities of the activity pattern play a particularly important role on strongly heterogeneous interaction networks. The activity pattern&#x27;s structure, such as power-law distributions, directly causes the instability, while the defectors&#x27; behavior is counteracted by the inactivity. Overall, cooperation remains stable or slightly favors cooperators at intermediate values of $ b $, highlighting the critical role of activity patterns in shaping cooperation dynamics.</p>
+            <p><b>Category:</b> research paper</p>
+            <p><b>Keywords:</b> activity patterns, cooperation, social dilemmas, dynamic instability, random networks, cooperative hubs, power-law distribution, individual activation, cooperation dynamics</p>
+        </article>
+        
+
+        <article>
+            <h2><a href="../papers/s41599-022-01095-7.pdf">Evolutionary Dynamics of the Stag Hunt Game with Alternative Consensus Methods</a></h2>
+            <p>By employing two distinct consensus-making mechanisms, we explore how the population dynamics evolve in the stag hunt game. In the frequency-dependent approach, decisions are made with a fixed probability, leading to transitions between hare and stag states. The population can undergo a stepwise evolution, eventually stabilizing in a stable equilibrium. In contrast, the majority vote mechanism ensures consensus is reached through majority decision, creating loops that allow the system to cycle between states. The parameters G=5, M=4, PS=4, and PH=1 further define the population size and selection intensity, influencing the outcomes. Both methods highlight the interplay between decision-making rules and evolutionary transitions, demonstrating how different consensus mechanisms shape the long-term behavior of the population.</p>
+            <p><b>Category:</b> Social Sciences Communication</p>
+            <p><b>Keywords:</b> Stag Hunt Game, Consensus Methods, Evolutionary Dynamics, Frequency-Dependent Process, Majority Vote</p>
+        </article>
+        </main>
+
+    <script>
+        const container = document.getElementById("papers");
+        const articles = [...container.querySelectorAll("article")];
+
+        document.getElementById("search").addEventListener("input", (event) => {
+            const query = event.target.value.trim().toLowerCase();
+
+            const ranked = articles.map(article => {
+                const title = article.querySelector("h2").textContent.toLowerCase();
+                const content = article.textContent.toLowerCase();
+
+                const rank = title.includes(query) ? 0 : content.includes(query) ? 1 : 2;
+                return { article, rank };
+            });
+
+            ranked.sort((a, b) => a.rank - b.rank);
+
+            ranked.forEach(({ article, rank }) => {
+                article.hidden = rank === 2;
+                container.appendChild(article);
+            });
+        });
+    </script>
+</body>
+</html>

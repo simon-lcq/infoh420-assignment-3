@@ -1,0 +1,22 @@
+-- scan papers
+[2026-11-08 17:34:40] INFO - 1 new pdf : ['1312.5602v1.pdf']
+[2026-11-08 17:34:40] INFO - Done. Returned value was: ['1312.5602v1.pdf']
+-- process papers 
+[2026-11-08 17:34:42] INFO - treating pdf : 1312.5602v1.pdf
+[2026-11-08 17:34:44] INFO - 
+[2026-11-08 17:34:44] INFO - === Document parser messages ===
+[2026-11-08 17:34:44] INFO - Warning: RapidOCR is missing. Install for much improved OCR results.
+[2026-11-08 17:35:12] INFO - LLM raw response: {
+"title" : "Deep Q-learning with Experience Replay: A Robust Approach to Reinforcement Learning on Atari Games",
+"summary" : "Deep Q-learning with Experience Replay is a robust reinforcement learning approach that leverages experience replay to improve the efficiency and stability of training. By storing past actions in a replay memory, the algorithm reduces the variance of updates and avoids oscillations or divergence, making it more effective than standard online Q-learning. This approach is particularly robust across different Atari games, demonstrating its ability to learn effectively from arbitrary-length histories. However, it has limitations, such as memory buffer inefficiencies and uniform sampling, which can lead to overfitting. Despite these challenges, the algorithm remains a powerful tool for learning from raw, high-dimensional Atari images, making it a promising solution for real-world applications.",
+"keywords" : ["Deep Q-learning", "Experience replay", "Reinforcement learning", "Atari games", "Robustness", "Efficiency", "Stability", "Learning algorithm", "Experience buffer", "Sampling strategy"],
+"category" : "Reinforcement Learning Algorithms" 
+}
+[2026-11-08 17:35:12] INFO - file saved : 1312.5602v1.pdf
+[2026-11-08 17:35:12] INFO - Done. Returned value was: [{'filename': '1312.5602v1.pdf', 'title': 'Deep Q-learning with Experience Replay: A Robust Approach to Reinforcement Learning on Atari Games', 'summary': 'Deep Q-learning with Experience Replay is a robust reinforcement learning approach that leverages experience replay to improve the efficiency and stability of training. By storing past actions in a replay memory, the algorithm reduces the variance of updates and avoids oscillations or divergence, making it more effective than standard online Q-learning. This approach is particularly robust across different Atari games, demonstrating its ability to learn effectively from arbitrary-length histories. However, it has limitations, such as memory buffer inefficiencies and uniform sampling, which can lead to overfitting. Despite these challenges, the algorithm remains a powerful tool for learning from raw, high-dimensional Atari images, making it a promising solution for real-world applications.', 'keywords': ['Deep Q-learning', 'Experience replay', 'Reinforcement learning', 'Atari games', 'Robustness', 'Efficiency', 'Stability', 'Learning algorithm', 'Experience buffer', 'Sampling strategy'], 'category': 'Reinforcement Learning Algorithms'}]
+-- regenerate html 
+[2026-11-08 17:35:13] INFO - html updated : /opt/airflow/library/output/index.html
+[2026-11-08 17:35:13] INFO - Done. Returned value was: [{'filename': '1312.5602v1.pdf', 'title': 'Deep Q-learning with Experience Replay: A Robust Approach to Reinforcement Learning on Atari Games', 'summary': 'Deep Q-learning with Experience Replay is a robust reinforcement learning approach that leverages experience replay to improve the efficiency and stability of training. By storing past actions in a replay memory, the algorithm reduces the variance of updates and avoids oscillations or divergence, making it more effective than standard online Q-learning. This approach is particularly robust across different Atari games, demonstrating its ability to learn effectively from arbitrary-length histories. However, it has limitations, such as memory buffer inefficiencies and uniform sampling, which can lead to overfitting. Despite these challenges, the algorithm remains a powerful tool for learning from raw, high-dimensional Atari images, making it a promising solution for real-world applications.', 'keywords': ['Deep Q-learning', 'Experience replay', 'Reinforcement learning', 'Atari games', 'Robustness', 'Efficiency', 'Stability', 'Learning algorithm', 'Experience buffer', 'Sampling strategy'], 'category': 'Reinforcement Learning Algorithms'}]
+-- send notification
+[2026-11-08 17:35:14] INFO - 1 notifications sent
+[2026-11-08 17:35:14] INFO - Done. Returned value was: None
