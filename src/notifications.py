@@ -16,6 +16,10 @@ def notify_discord(paper: dict, webhook_url: str | None = None):
     request = urllib.request.Request(
         webhook_url,
         data=payload,
+        headers={
+            'Content-Type': 'application/json',
+            'User-Agent': 'pipeline/1.0 (+https://github.com/)',
+        },
         method='POST'
     )
     with urllib.request.urlopen(request, timeout=15) as response:
